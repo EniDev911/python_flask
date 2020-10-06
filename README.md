@@ -1,3 +1,3 @@
 # python_flask 
-Vamos a desarrollar app con Python, utilizando flask
+Vamos a desarrollar proyectos con Python, utilizando  el microframework flask
 paso a paso
