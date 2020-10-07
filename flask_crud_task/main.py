@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -8,7 +8,8 @@ db = SQLAlchemy(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    tasks = Task.query.all()
+    return render_template('index.html', tasks = tasks)
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,7 +21,14 @@ def create():
     task = Task(content=request.form['task'], done=False)
     db.session.add(task)
     db.session.commit()
-    return 'saved'      
+    return redirect(url_for('index'))   
+
+
+@app.route('/delete/<id>')   
+def delete(id):
+    task = Task.query.filter_by(id=int(id)).delete()
+    db.session.commit()
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':
