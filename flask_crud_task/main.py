@@ -1,7 +1,12 @@
 from flask import Flask
+from flask_alchemy import SQLAlchemy
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
-@route('/')
-def home():
-    return 'test response'
+
+
+if __name__ == '__main__':
+    app.run(debug=True) 
+
+
