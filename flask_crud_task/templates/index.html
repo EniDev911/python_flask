@@ -32,8 +32,8 @@
                     <ul class="list-group">
                     {% for task in tasks %}
                         <li class="list-group-item">
-                        {{ task.content }}
-                        <a href="#" class="btn btn-sm btn-success">Done</a>
+                        <span class="{% if task.done %} done {% endif%}"> {{ task.content }} </span>
+                        <a href="/update/{{task.id}}" class="btn btn-sm btn-success">Done</a>
                         <a href="/delete/{{task.id}}" class="btn btn-sm btn-danger">Delete</a>
                         </li>
                      {% endfor %}
