@@ -1,6 +1,5 @@
-# python_flask 
-Vamos a desarrollar proyectos con Python, utilizando  el microframework flask
-paso a paso
+# python_flask Project 
+
 
 # 01 crud contatcs flask-mysql
 [Crud contacts 01](./flask_contacts_app)
